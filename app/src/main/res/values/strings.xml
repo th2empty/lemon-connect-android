@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Husky ID</string>
+    <string name="coder_nickname">lemon4k</string>
+    <string name="user_id">Personal ID: 1</string>
+    <string name="personal_info">Personal info</string>
+    <string name="st_account_security">Account security</string>
+    <string name="st_cloud">Cloud</string>
+    <string name="st_used_storage">Used 5 GB</string>
+    <string name="st_settings">Settings</string>
+    <string name="st_help">Help</string>
+    <string name="st_logout">Log out</string>
+    <string name="st_sign_in">Sign in</string>
+    <string name="st_id_uppercase">ID</string>
+    <string name="st_login_hint">Username or email</string>
+    <string name="st_continue">Continue</string>
+    <string name="st_dont_have_an_account">Don\'t have an account?</string>
+    <string name="st_unknown_error">Unknown error</string>
+</resources>

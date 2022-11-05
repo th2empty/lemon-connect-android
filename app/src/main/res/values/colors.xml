@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- don_lemon4k -->
+    <color name="indigo_blue">#034078</color> <!-- main color -->
+    <color name="conflower_blue">#648DE5</color> <!-- active color -->
+    <color name="alice_blue">#E8F1F2</color> <!-- bg color -->
+    <color name="gray_for_stroke">#D1D1D1</color> <!-- stroke color -->
+    <color name="gray_dark">#A9A9A9</color> <!-- gray dark -->
+    <color name="red">#EF2B23</color> <!-- red for errors -->
+    <color name="gray_for_background">#EFEFEF</color> <!-- gray for background -->
+</resources>
