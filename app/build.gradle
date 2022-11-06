@@ -1,28 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id "me.moallemi.advanced-build-version" version "2.0.0"
 }
 
-advancedVersioning {
-    nameOptions {
-        versionMajor 1
-        versionMinor 3
-        versionPatch 6
-        versionBuild 8
-    }
-    codeOptions {
-        versionCodeType 'GIT_COMMIT_COUNT'
-        dependsOnTasks 'debug', 'release', 'assemble'
-    }
-    outputOptions {
-        renameOutput true
-        nameFormat '${appName}-${versionName}-${versionCode}-${buildType}'
-    }
-}
+apply plugin: 'kotlin-kapt'
 
-def appVersionName = advancedVersioning.versionName
-def appVersionCode = advancedVersioning.versionCode
+def code = Integer.parseInt(['sh','-c','git rev-list --all --count'].execute().text.trim())
 
 android {
     namespace 'su.lemon4k.huskyid'
@@ -32,14 +15,20 @@ android {
         applicationId "su.lemon4k.huskyid"
         minSdk 26
         targetSdk 33
-        versionCode 1
+        versionCode code
         versionName "0.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    defaultConfig.versionCode += 1
-    print(defaultConfig.versionCode)
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def builtType = variant.buildType.name
+            def versionName = variant.versionName
+            def versionCode = variant.versionCode
+            outputFileName = "HuskyID-${builtType}-${versionName}.${versionCode}.apk"
+        }
+    }
 
     buildTypes {
         release {
@@ -53,18 +42,15 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
 }
 
-advancedVersioning.renameOutputApk()
-
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
@@ -73,7 +59,13 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    // lottie
+    implementation 'com.airbnb.android:lottie:5.2.0'
+    // moxy
+    implementation 'tech.schoolhelper:moxy-x:1.7.0'
+    kapt 'tech.schoolhelper:moxy-x-compiler:1.7.0'
+    implementation 'tech.schoolhelper:moxy-x-android:1.7.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

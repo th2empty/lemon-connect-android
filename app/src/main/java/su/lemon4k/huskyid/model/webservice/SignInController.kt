@@ -1,5 +1,6 @@
 package su.lemon4k.huskyid.model.webservice
 
+import android.util.Log
 import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -7,8 +8,12 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class SignInController(private var input: SignInInput, private var userCallback: UserCallback) : Callback<SignInResponse> {
+class SignInController(private var input: SignInInput) : Callback<SignInResponse> {
     private val constants = Constants()
+
+    companion object {
+        private const val TAG = "SignInController"
+    }
 
     fun auth() {
         try {
@@ -27,15 +32,14 @@ class SignInController(private var input: SignInInput, private var userCallback:
 
     override fun onResponse(call: Call<SignInResponse>, response: Response<SignInResponse>) {
         if (response.isSuccessful) {
-            val res = response.body()
-            userCallback.onResponse(res!!)
+            val res: SignInResponse? = response.body()
+            Log.i(TAG, res.toString())
         } else {
-            userCallback.onFailure(Exception(response.message()))
+            Log.w(TAG, response.message())
         }
     }
 
     override fun onFailure(call: Call<SignInResponse>, t: Throwable) {
         t.printStackTrace()
-        userCallback.onFailure(Exception(t.message))
     }
 }
