@@ -20,9 +20,10 @@
         <item name="android:textViewStyle">@style/TextViewPrimary</item>
     </style>
     
-    <style name="SecondaryText" parent="Widget.AppCompat.TextView">
+    <style name="SecondaryText" parent="Widget.MaterialComponents.TextView">
         <item name="android:textColor">?attr/colorSecondary</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/lato_regular</item>
     </style>
     <style name="ButtonPrimary" parent="Widget.Material3.Button">
         <item name="android:textColor">?attr/colorOnPrimary</item>

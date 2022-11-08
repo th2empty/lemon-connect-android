@@ -19,4 +19,7 @@
     <string name="st_invalid_username">User with this username is not registered</string>
     <string name="st_invalid_email">User with email %s is not registered</string>
     <string name="st_password_hint">Password</string>
+    <string name="st_server_unavailable">The server is temporarily unavailable. Please try again later</string>
+    <string name="st_invalid_username_or_password">Invalid login or password</string>
+    <string name="st_internal_server_error">Internal server error</string>
 </resources>

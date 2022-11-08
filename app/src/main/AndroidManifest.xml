@@ -23,6 +23,15 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <service android:name=".account.AuthenticatorService"
+            android:exported="true"
+            android:permission="su.lemon4k.connect.permissions.use_authenticator">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true">

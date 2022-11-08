@@ -1,4 +1,4 @@
-package su.lemon4k.huskyid.model.webservice
+package su.lemon4k.huskyid.model.network
 
 import retrofit2.Call
 import retrofit2.http.Body
