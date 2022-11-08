@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.SignInActivity">
+    tools:context="su.lemon4k.connect.ui.activity.SignInActivity">
 
     <LinearLayout
         android:id="@+id/auth_form_ll"
@@ -13,18 +13,10 @@
         android:layout_marginTop="100dp"
         android:orientation="vertical"
         android:layout_centerHorizontal="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/st_sign_in"
-            android:textSize="24sp"
-            android:fontFamily="@font/rubik_medium"
-            android:layout_gravity="center_horizontal"/>
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="85dp"
+            android:layout_marginBottom="35dp"
             app:cardCornerRadius="20dp"
             android:layout_gravity="center_horizontal">
             <ImageView
@@ -33,6 +25,14 @@
                 android:src="@mipmap/ic_launcher"
                 android:layout_gravity="center_horizontal"/>
         </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/st_sign_in"
+            android:textSize="24sp"
+            android:fontFamily="@font/rubik_medium"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="25dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,8 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:hint="@string/st_login_hint"
-                android:singleLine="true"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:singleLine="true"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -61,7 +60,7 @@
                 android:layout_gravity="center_horizontal"
                 android:hint="@string/st_password_hint"
                 android:singleLine="true"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:inputType="textPassword" />
         </LinearLayout>
         <TextView
             android:id="@+id/error_message_tv"
@@ -95,13 +94,13 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/sign_up_btn"
-        style="@style/Widget.Material3.Button.TextButton"
+        style="@style/TextButtonPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="34dp"
         android:text="@string/st_dont_have_an_account"
-        android:textColor="#82B1FF" />
+        android:textSize="14sp"/>
 
 </RelativeLayout>

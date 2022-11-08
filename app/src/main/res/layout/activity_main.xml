@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.MainActivity">
+    tools:context="su.lemon4k.connect.ui.activity.MainActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/profile_info"
@@ -26,8 +26,8 @@
                 android:orientation="vertical">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/user_avatar"
-                    android:layout_width="72dp"
-                    android:layout_height="72dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@mipmap/ic_launcher"/>
@@ -38,7 +38,8 @@
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/coder_nickname"
-                    android:textSize="14sp"/>
+                    android:textSize="16sp"
+                    android:fontFamily="@font/rubik_regular"/>
                 <TextView
                     android:id="@+id/user_personal_id"
                     android:layout_width="wrap_content"
@@ -69,19 +70,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="15dp"
-                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical">
+                    android:layout_gravity="center_vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/text_button_primary">
                     <ImageView
                         android:id="@+id/personal_info_ico"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_outline_info_24"
+                        android:src="@drawable/ic_info"
                         android:paddingStart="0dp"
                         android:paddingEnd="10dp"/>
                     <TextView
@@ -115,19 +117,20 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sep1"
                 android:orientation="vertical"
-                android:layout_margin="15dp"
-                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical">
+                    android:layout_gravity="center_vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/text_button_primary">
                     <ImageView
                         android:id="@+id/account_security_ico"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_outline_shield_24"
+                        android:src="@drawable/ic_shield"
                         android:paddingStart="0dp"
                         android:paddingEnd="10dp"/>
                     <TextView
@@ -167,19 +170,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="15dp"
-                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical">
+                    android:layout_gravity="center_vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/text_button_primary">
                     <ImageView
                         android:id="@+id/cloud_ico"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_outline_cloud_24"
+                        android:src="@drawable/ic_cloud"
                         android:paddingStart="0dp"
                         android:paddingEnd="10dp"/>
                     <TextView
@@ -229,19 +233,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="15dp"
-                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical">
+                    android:layout_gravity="center_vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/text_button_primary">
                     <ImageView
                         android:id="@+id/settings_ico"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_outline_settings_24"
+                        android:src="@drawable/ic_settings"
                         android:paddingStart="0dp"
                         android:paddingEnd="10dp"/>
                     <TextView
@@ -275,19 +280,20 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sep2"
                 android:orientation="vertical"
-                android:layout_margin="15dp"
-                android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:layout_margin="5dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical">
+                    android:layout_gravity="center_vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/text_button_primary">
                     <ImageView
                         android:id="@+id/help_ico"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_outline_help_outline_24"
+                        android:src="@drawable/ic_help"
                         android:paddingStart="0dp"
                         android:paddingEnd="10dp"/>
                     <TextView
@@ -311,7 +317,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/settings_cv"
         android:layout_marginTop="15dp"

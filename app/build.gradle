@@ -8,15 +8,15 @@ apply plugin: 'kotlin-kapt'
 def code = Integer.parseInt(['sh','-c','git rev-list --all --count'].execute().text.trim())
 
 android {
-    namespace 'su.lemon4k.huskyid'
+    namespace 'su.lemon4k.connect'
     compileSdk 33
 
     defaultConfig {
-        applicationId "su.lemon4k.huskyid"
+        applicationId "su.lemon4k.connect"
         minSdk 26
         targetSdk 33
         versionCode code
-        versionName "0.1.0"
+        versionName "0.2.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,7 +26,7 @@ android {
             def builtType = variant.buildType.name
             def versionName = variant.versionName
             def versionCode = variant.versionCode
-            outputFileName = "HuskyID-${builtType}-${versionName}.${versionCode}.apk"
+            outputFileName = "LemonConnect-${builtType}-${versionName}.${versionCode}.apk"
         }
     }
 

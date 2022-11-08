@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.HuskyID" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Theme.LemonConnect" parent="Theme.Material3.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/indigo_blue</item>
         <item name="colorPrimaryVariant">@color/alice_blue</item>
@@ -23,11 +23,15 @@
     <style name="SecondaryText" parent="Widget.MaterialComponents.TextView">
         <item name="android:textColor">?attr/colorSecondary</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:fontFamily">@font/rubik_regular</item>
     </style>
     <style name="ButtonPrimary" parent="Widget.Material3.Button">
         <item name="android:textColor">?attr/colorOnPrimary</item>
         <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/rubik_medium</item>
+    </style>
+    <style name="TextButtonPrimary" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">?attr/colorAccent</item>
         <item name="fontFamily">@font/rubik_medium</item>
     </style>
     <style name="Button.Borderless" parent="ButtonPrimary">
@@ -38,10 +42,10 @@
         <item name="android:padding">10dp</item>
         <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:fontFamily">@font/rubik_regular</item>
     </style>
     <style name="TextViewPrimary" parent="Widget.MaterialComponents.TextView">
-        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:fontFamily">@font/rubik_regular</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">?attr/colorPrimary</item>
     </style>

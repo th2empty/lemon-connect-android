@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Husky ID</string>
+    <string name="app_name">Connect</string>
     <string name="coder_nickname">lemon4k</string>
     <string name="user_id">Personal ID: 1</string>
     <string name="personal_info">Personal info</string>
@@ -22,4 +22,11 @@
     <string name="st_server_unavailable">The server is temporarily unavailable. Please try again later</string>
     <string name="st_invalid_username_or_password">Invalid login or password</string>
     <string name="st_internal_server_error">Internal server error</string>
+    <string name="st_check_for_updates">Check for updates</string>
+    <string name="st_about">About</string>
+    <string name="st_application_icon">Application icon</string>
+    <string name="st_lemon_id">Lemon ID</string>
+    <string name="st_version">Version %s (%s)</string>
+    <string name="st_copyright">Lemon ID. All rights reversed. ©2022</string>
+    <string name="st_open_source_licenses">Open Source Licenses</string>
 </resources>
