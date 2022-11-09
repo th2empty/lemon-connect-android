@@ -6,10 +6,17 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.arellomobile.mvp.MvpActivity
+import com.arellomobile.mvp.presenter.InjectPresenter
 import com.google.android.material.appbar.MaterialToolbar
 import su.lemon4k.connect.R
+import su.lemon4k.connect.presentation.presenter.SettingsPresenter
+import su.lemon4k.connect.ui.views.SettingsView
 
-class SettingsActivity : AppCompatActivity() {
+class SettingsActivity : MvpActivity(), SettingsView {
+
+    @InjectPresenter
+    lateinit var presenter: SettingsPresenter
 
     // Views
     private lateinit var topAppBar: MaterialToolbar
@@ -39,5 +46,13 @@ class SettingsActivity : AppCompatActivity() {
         return View.OnClickListener {
             Toast.makeText(this, "In progress...", Toast.LENGTH_LONG).show()
         }
+    }
+
+    override fun showLoading() {
+
+    }
+
+    override fun hideLoading() {
+
     }
 }

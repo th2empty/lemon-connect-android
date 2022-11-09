@@ -80,7 +80,7 @@ class SignInActivity : MvpActivity(), SignInView {
         loadingProgressBar.visibility = View.GONE
     }
 
-    private fun init() {
+    override fun init() {
         mAccountManager = AccountManager.get(this)
         sharedPreferences =
             this.getSharedPreferences(Constants.KEY_ACCOUNT_PREFERENCE, Context.MODE_PRIVATE) ?: return
@@ -137,7 +137,8 @@ class SignInActivity : MvpActivity(), SignInView {
 
     private fun signUpButtonClick(): View.OnClickListener {
         return View.OnClickListener {
-            Toast.makeText(this, "In progress...", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, SignUpActivity::class.java))
+            finish()
         }
     }
 }

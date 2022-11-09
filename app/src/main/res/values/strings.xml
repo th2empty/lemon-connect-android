@@ -27,6 +27,10 @@
     <string name="st_application_icon">Application icon</string>
     <string name="st_lemon_id">Lemon ID</string>
     <string name="st_version">Version %s (%s)</string>
-    <string name="st_copyright">Lemon ID. All rights reversed. ©2022</string>
+    <string name="st_copyright">Lemon Connect. All rights reversed. ©2022</string>
     <string name="st_open_source_licenses">Open Source Licenses</string>
+    <string name="st_sign_up">Sign Up</string>
+    <string name="st_why_do_need_email">Your email will be used for signing in to your account</string>
+    <string name="st_email">Email</string>
+    <string name="st_already_have_an_account">Already have an account? Sign in</string>
 </resources>

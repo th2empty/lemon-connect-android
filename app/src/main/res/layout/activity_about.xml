@@ -44,7 +44,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/st_version"
-            android:textSize="18sp"
             style="@style/SecondaryText"/>
     </LinearLayout>
     <LinearLayout
