@@ -33,4 +33,8 @@
     <string name="st_why_do_need_email">Your email will be used for signing in to your account</string>
     <string name="st_email">Email</string>
     <string name="st_already_have_an_account">Already have an account? Sign in</string>
+    <string name="st_id">ID</string>
+    <string name="st_enter_username">Enter username</string>
+    <string name="st_why_do_need_username">The username will be displayed in the profile and can be used for authorization</string>
+    <string name="st_username">Username</string>
 </resources>

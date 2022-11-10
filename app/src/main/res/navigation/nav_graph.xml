@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/signUpFirstFragment">
+    <fragment
+        android:id="@+id/signUpFirstFragment"
+        android:name="su.lemon4k.connect.ui.fragment.SignUpFirstFragment"
+        android:label="fragment_sign_up_fitst"
+        tools:layout="@layout/fragment_sign_up_first" >
+        <action
+            android:id="@+id/action_signUpFitstFragment_to_signUpSecondFragment"
+            app:destination="@id/signUpSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpSecondFragment"
+        android:name="su.lemon4k.connect.ui.fragment.SignUpSecondFragment"
+        android:label="fragment_sign_up_second"
+        tools:layout="@layout/fragment_sign_up_second" />
+</navigation>
