@@ -2,6 +2,7 @@ package su.lemon4k.connect.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextWatcher
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import moxy.ktx.moxyPresenter
 import su.lemon4k.connect.MvpFragment
@@ -38,10 +40,22 @@ class SignUpStepOneFragment : MvpFragment(), SignUpView {
         errorMessageView = v.findViewById(R.id.error_message_tv)
         btnSignIn = v.findViewById(R.id.sign_in_btn)
 
+        inputEmail.addTextChangedListener { hideError() }
         btnContinue.setOnClickListener(continueButtonClick())
         btnSignIn.setOnClickListener(signInButtonClick())
 
         return v
+    }
+
+    override fun showEmptyFieldError() {
+        errorMessageView.text = getString(R.string.st_field_cannot_be_empty)
+        errorMessageView.visibility = View.VISIBLE
+        btnContinue.isEnabled = false
+    }
+
+    private fun hideError() {
+        errorMessageView.visibility = View.GONE
+        btnContinue.isEnabled = true
     }
 
     private fun continueButtonClick() = View.OnClickListener {
@@ -67,18 +81,15 @@ class SignUpStepOneFragment : MvpFragment(), SignUpView {
         activity?.finish()
     }
 
-    override fun showEmptyFieldError() {
-        errorMessageView.text = getString(R.string.st_field_cannot_be_empty)
-        errorMessageView.visibility = View.VISIBLE
-    }
-
     private fun showAlreadyRegisteredError() {
         errorMessageView.text = getString(R.string.st_email_already_registered)
         errorMessageView.visibility = View.VISIBLE
+        btnContinue.isEnabled = false
     }
 
     private fun showIncorrectEmailError() {
         errorMessageView.text = getString(R.string.st_incorrect_email)
         errorMessageView.visibility = View.VISIBLE
+        btnContinue.isEnabled = false
     }
 }

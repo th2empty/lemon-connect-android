@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import moxy.ktx.moxyPresenter
 import su.lemon4k.connect.MvpFragment
@@ -33,6 +34,7 @@ class SignUpSecondFragment : MvpFragment(), SignUpView {
         btnContinue = v.findViewById(R.id.continue_button)
         errorMessageView = v.findViewById(R.id.error_message_tv)
 
+        inputUsername.addTextChangedListener { hideErrorMessage() }
         btnContinue.setOnClickListener(continueButtonClick())
 
         return v
@@ -41,11 +43,18 @@ class SignUpSecondFragment : MvpFragment(), SignUpView {
     override fun showEmptyFieldError() {
         errorMessageView.text = getString(R.string.st_field_cannot_be_empty)
         errorMessageView.visibility = View.VISIBLE
+        btnContinue.isEnabled = false
+    }
+
+    private fun hideErrorMessage() {
+        errorMessageView.visibility = View.GONE
+        btnContinue.isEnabled = true
     }
 
     private fun showAlreadyRegisteredError() {
         errorMessageView.text = getString(R.string.st_email_already_registered)
         errorMessageView.visibility = View.VISIBLE
+        btnContinue.isEnabled = false
     }
 
     private fun continueButtonClick() = View.OnClickListener {

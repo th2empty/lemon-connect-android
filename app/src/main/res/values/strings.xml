@@ -46,4 +46,5 @@
     <string name="st_why_do_need_password">Create a strong password, it will be used for log in</string>
     <string name="st_confirm_password">Confirm password</string>
     <string name="st_password_lenght">Password length must be at least 6 characters</string>
+    <string name="st_password_mismatch_error">Passwords do not match</string>
 </resources>

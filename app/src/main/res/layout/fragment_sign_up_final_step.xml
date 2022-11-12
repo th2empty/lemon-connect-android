@@ -73,28 +73,48 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@drawable/data_input_card_primary">
-            <EditText
-                android:id="@+id/input_password"
-                style="@style/EditTextPrimary"
-                android:layout_width="290dp"
-                android:layout_height="wrap_content"
-                android:hint="@string/st_password_hint"
-                android:layout_gravity="center"
-                android:inputType="textPassword"
-                android:autofillHints="username" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                app:boxStrokeWidth="0dp"
+                app:passwordToggleEnabled="true"
+                android:textColorHint="@color/gray_dark"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false"
+                app:passwordToggleDrawable="@drawable/show_password_selector">
+                <EditText
+                    android:id="@+id/input_password"
+                    style="@style/EditTextPrimary"
+                    android:layout_width="290dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/st_password_hint"
+                    android:layout_gravity="center"
+                    android:inputType="textPassword"
+                    android:autofillHints="password"/>
+            </com.google.android.material.textfield.TextInputLayout>
             <View
                 android:layout_width="290dp"
                 android:layout_height="1dp"
                 android:background="@color/gray_for_stroke"/>
-            <EditText
-                android:id="@+id/input_confirm_password"
-                style="@style/EditTextPrimary"
-                android:layout_width="290dp"
-                android:layout_height="wrap_content"
-                android:hint="@string/st_confirm_password"
-                android:layout_gravity="center"
-                android:inputType="textPassword"
-                android:autofillHints="username" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                app:boxStrokeWidth="0dp"
+                app:passwordToggleEnabled="true"
+                android:textColorHint="@color/gray_dark"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false"
+                app:passwordToggleDrawable="@drawable/show_password_selector">
+                <EditText
+                    android:id="@+id/input_confirm_password"
+                    style="@style/EditTextPrimary"
+                    android:layout_width="290dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/st_confirm_password"
+                    android:layout_gravity="center"
+                    android:inputType="textPassword"
+                    android:autofillHints="password"/>
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
         <TextView
             android:id="@+id/error_message_tv"

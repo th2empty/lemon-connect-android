@@ -10,7 +10,7 @@ import su.lemon4k.connect.account.Constants
 import su.lemon4k.connect.model.User
 import su.lemon4k.connect.model.exceptions.InternalServerError
 import su.lemon4k.connect.model.exceptions.UnauthorizedException
-import su.lemon4k.connect.model.network.SignInInput
+import su.lemon4k.connect.network.SignInInput
 import su.lemon4k.connect.ui.views.SignInView
 
 @InjectViewState

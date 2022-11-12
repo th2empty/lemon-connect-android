@@ -8,7 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import su.lemon4k.connect.model.User
-import su.lemon4k.connect.model.network.SignInInput
+import su.lemon4k.connect.network.SignInInput
 import su.lemon4k.connect.ui.activity.SignInActivity
 
 class Authenticator(context: Context) : AbstractAccountAuthenticator(context) {

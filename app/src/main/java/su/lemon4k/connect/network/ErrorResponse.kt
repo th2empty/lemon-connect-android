@@ -1,3 +1,3 @@
-package su.lemon4k.connect.model.network
+package su.lemon4k.connect.network
 
 data class ErrorResponse(val message: String)

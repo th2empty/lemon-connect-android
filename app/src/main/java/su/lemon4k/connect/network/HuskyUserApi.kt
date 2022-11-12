@@ -1,4 +1,4 @@
-package su.lemon4k.connect.model.network
+package su.lemon4k.connect.network
 
 import retrofit2.Call
 import retrofit2.http.Body

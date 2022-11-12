@@ -4,7 +4,11 @@ import com.google.gson.GsonBuilder
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import su.lemon4k.connect.model.network.*
+import su.lemon4k.connect.network.*
+import su.lemon4k.connect.network.Constants
+import su.lemon4k.connect.network.HuskyUserApi
+import su.lemon4k.connect.network.SignInInput
+import su.lemon4k.connect.network.SignInResponse
 
 data class User(
     val id: Long? = null,

@@ -18,7 +18,7 @@ import su.lemon4k.connect.R
 import su.lemon4k.connect.account.Constants
 import su.lemon4k.connect.model.exceptions.InternalServerError
 import su.lemon4k.connect.model.exceptions.UnauthorizedException
-import su.lemon4k.connect.model.network.SignInInput
+import su.lemon4k.connect.network.SignInInput
 import su.lemon4k.connect.presentation.presenter.SignInPresenter
 import su.lemon4k.connect.ui.views.SignInView
 import java.net.ConnectException
@@ -52,6 +52,7 @@ class SignInActivity : MvpActivity(), SignInView {
         errorMessageView.visibility = View.VISIBLE
         loginInput.addTextChangedListener { errorMessageView.visibility = View.GONE }
         passwordInput.addTextChangedListener { errorMessageView.visibility = View.GONE }
+        signInBtn.isEnabled = false
     }
 
     override fun showAuthError(message: String, t: Throwable?) {
@@ -60,9 +61,7 @@ class SignInActivity : MvpActivity(), SignInView {
             hideLoading()
             errorMessageView.text = message
             errorMessageView.visibility = View.VISIBLE
-            loginInput.addTextChangedListener {
-                errorMessageView.visibility = View.GONE
-            }
+            signInBtn.isEnabled = false
         }
     }
 
@@ -92,8 +91,15 @@ class SignInActivity : MvpActivity(), SignInView {
         errorMessageView = findViewById(R.id.error_message_tv)
         loadingProgressBar = findViewById(R.id.loading_pb)
 
+        loginInput.addTextChangedListener { hideErrorMessage() }
+        passwordInput.addTextChangedListener { hideErrorMessage() }
         signInBtn.setOnClickListener(signInButtonClick())
         signUpBtn.setOnClickListener(signUpButtonClick())
+    }
+
+    private fun hideErrorMessage() {
+        errorMessageView.visibility = View.GONE
+        signInBtn.isEnabled = true
     }
 
     private fun signInButtonClick(): View.OnClickListener {
@@ -107,7 +113,8 @@ class SignInActivity : MvpActivity(), SignInView {
             scope.launch(Dispatchers.IO) {
                 try {
                     presenter.signIn(mAccountManager, sharedPreferences,
-                        SignInInput(loginInput.text.toString(), passwordInput.text.toString())) {
+                        SignInInput(loginInput.text.toString(), passwordInput.text.toString())
+                    ) {
                         runBlocking(Dispatchers.Main) {
                             hideLoading()
                             val intent = Intent(this@SignInActivity,
