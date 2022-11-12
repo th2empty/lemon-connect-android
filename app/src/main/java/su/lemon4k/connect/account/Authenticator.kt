@@ -7,8 +7,8 @@ import android.accounts.AccountManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import su.lemon4k.connect.model.User
-import su.lemon4k.connect.network.SignInInput
+import su.lemon4k.connect.model.Auth
+import su.lemon4k.connect.network.input.SignInInput
 import su.lemon4k.connect.ui.activity.SignInActivity
 
 class Authenticator(context: Context) : AbstractAccountAuthenticator(context) {
@@ -57,12 +57,11 @@ class Authenticator(context: Context) : AbstractAccountAuthenticator(context) {
         // if access token is empty but the password is not empty try to auth
         if (accessToken.isEmpty() && password.isNotEmpty()) {
             // TODO: if RefreshToken saved update AccessToken without new signing in
-            val user = User()
-            val authResponse = user.signIn(SignInInput(account?.name!!, password))
+            val auth = Auth()
+            val authResponse =
+                auth.signIn(null, null, SignInInput(account?.name!!, password))
 
-            if (authResponse.isSuccessful) {
-                accessToken = authResponse.body()?.access_token ?: ""
-            }
+            accessToken = authResponse?.access_token ?: ""
         }
 
         if (accessToken.isNotEmpty()) {

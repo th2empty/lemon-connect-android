@@ -21,6 +21,5 @@ class SignUpActivity : FragmentActivity(), SignUpView {
         val navController = navHostFragment.findNavController()
     }
 
-    override fun showEmptyFieldError() {
-    }
+    override fun showEmptyFieldError() {}
 }

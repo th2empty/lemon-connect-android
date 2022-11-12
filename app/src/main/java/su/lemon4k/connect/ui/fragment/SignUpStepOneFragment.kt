@@ -9,9 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import moxy.ktx.moxyPresenter
 import su.lemon4k.connect.MvpFragment
 import su.lemon4k.connect.R
@@ -22,12 +27,14 @@ import su.lemon4k.connect.ui.views.SignUpView
 class SignUpStepOneFragment : MvpFragment(), SignUpView {
 
     private val presenter by moxyPresenter { SignUpPresenter() }
+    private val scope = MainScope()
 
     // Views
     private lateinit var inputEmail: EditText
     private lateinit var btnContinue: Button
     private lateinit var errorMessageView: TextView
     private lateinit var btnSignIn: Button
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +46,7 @@ class SignUpStepOneFragment : MvpFragment(), SignUpView {
         btnContinue = v.findViewById(R.id.continue_button)
         errorMessageView = v.findViewById(R.id.error_message_tv)
         btnSignIn = v.findViewById(R.id.sign_in_btn)
+        progressBar = v.findViewById(R.id.progress_bar)
 
         inputEmail.addTextChangedListener { hideError() }
         btnContinue.setOnClickListener(continueButtonClick())
@@ -53,26 +61,47 @@ class SignUpStepOneFragment : MvpFragment(), SignUpView {
         btnContinue.isEnabled = false
     }
 
+    fun showLoading() {
+        progressBar.visibility = View.VISIBLE
+        btnContinue.visibility = View.GONE
+    }
+
+    fun hideLoading() {
+        progressBar.visibility = View.GONE
+        btnContinue.visibility = View.VISIBLE
+    }
+
     private fun hideError() {
         errorMessageView.visibility = View.GONE
         btnContinue.isEnabled = true
     }
 
     private fun continueButtonClick() = View.OnClickListener {
-        when (true) {
-            inputEmail.text.isEmpty() -> {
-                showEmptyFieldError()
-                return@OnClickListener
+        showLoading()
+        scope.launch(Dispatchers.IO) {
+            when (true) {
+                inputEmail.text.isEmpty() ->
+                    runBlocking(Dispatchers.Main) {
+                        showEmptyFieldError()
+                        hideLoading()
+                    }
+                !Patterns.EMAIL_ADDRESS.matcher(inputEmail.text).matches() ->
+                    runBlocking(Dispatchers.Main) {
+                        showIncorrectEmailError()
+                        hideLoading()
+                    }
+                !presenter.emailIsFree(inputEmail.text.toString()) ->
+                    runBlocking(Dispatchers.Main) {
+                        showAlreadyRegisteredError()
+                        hideLoading()
+                    }
+                else -> runBlocking(Dispatchers.Main) {
+                    hideLoading()
+                    val args = Bundle()
+                    args.putString("email", inputEmail.text.toString())
+                    findNavController().navigate(R.id.signUpStepTwoFragment, args)
+                }
             }
-            !Patterns.EMAIL_ADDRESS.matcher(inputEmail.text).matches() -> {
-                showIncorrectEmailError()
-                return@OnClickListener
-            }
-            !presenter.emailIsFree() -> {
-                showAlreadyRegisteredError()
-                return@OnClickListener
-            }
-            else -> findNavController().navigate(R.id.signUpStepTwoFragment)
         }
     }
 

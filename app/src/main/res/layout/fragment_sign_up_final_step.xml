@@ -128,6 +128,13 @@
             android:textSize="12sp"
             android:maxLines="6"
             android:visibility="gone"/>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="18dp"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/sign_up_btn"
             style="@style/ButtonPrimary"

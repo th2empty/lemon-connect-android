@@ -18,7 +18,7 @@ import su.lemon4k.connect.R
 import su.lemon4k.connect.account.Constants
 import su.lemon4k.connect.model.exceptions.InternalServerError
 import su.lemon4k.connect.model.exceptions.UnauthorizedException
-import su.lemon4k.connect.network.SignInInput
+import su.lemon4k.connect.network.input.SignInInput
 import su.lemon4k.connect.presentation.presenter.SignInPresenter
 import su.lemon4k.connect.ui.views.SignInView
 import java.net.ConnectException
@@ -113,8 +113,7 @@ class SignInActivity : MvpActivity(), SignInView {
             scope.launch(Dispatchers.IO) {
                 try {
                     presenter.signIn(mAccountManager, sharedPreferences,
-                        SignInInput(loginInput.text.toString(), passwordInput.text.toString())
-                    ) {
+                        SignInInput(loginInput.text.toString(), passwordInput.text.toString())) {
                         runBlocking(Dispatchers.Main) {
                             hideLoading()
                             val intent = Intent(this@SignInActivity,
