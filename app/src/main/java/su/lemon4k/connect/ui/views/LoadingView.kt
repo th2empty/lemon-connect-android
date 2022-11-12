@@ -1,9 +1,12 @@
 package su.lemon4k.connect.ui.views
 
-import com.arellomobile.mvp.MvpView
+import moxy.MvpView
+import moxy.viewstate.strategy.alias.AddToEndSingle
 
 interface LoadingView : MvpView {
+    @AddToEndSingle
     fun showLoading()
 
+    @AddToEndSingle
     fun hideLoading()
 }

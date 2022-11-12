@@ -85,6 +85,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/sign_in_btn"
+            style="@style/ButtonPrimary"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

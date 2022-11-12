@@ -6,16 +6,25 @@
     app:startDestination="@id/signUpFirstFragment">
     <fragment
         android:id="@+id/signUpFirstFragment"
-        android:name="su.lemon4k.connect.ui.fragment.SignUpFirstFragment"
+        android:name="su.lemon4k.connect.ui.fragment.SignUpStepOneFragment"
         android:label="fragment_sign_up_fitst"
-        tools:layout="@layout/fragment_sign_up_first" >
+        tools:layout="@layout/fragment_sign_up_step_one" >
         <action
             android:id="@+id/action_signUpFitstFragment_to_signUpSecondFragment"
-            app:destination="@id/signUpSecondFragment" />
+            app:destination="@id/signUpStepTwoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/signUpSecondFragment"
+        android:id="@+id/signUpStepTwoFragment"
         android:name="su.lemon4k.connect.ui.fragment.SignUpSecondFragment"
         android:label="fragment_sign_up_second"
-        tools:layout="@layout/fragment_sign_up_second" />
+        tools:layout="@layout/fragment_sign_up_step_two" >
+        <action
+            android:id="@+id/action_signUpStepTwoFragment_to_signUpFinalStepFragment"
+            app:destination="@id/signUpFinalStepFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFinalStepFragment"
+        android:name="su.lemon4k.connect.ui.fragment.SignUpFinalStepFragment"
+        android:label="fragment_sign_up_final_step"
+        tools:layout="@layout/fragment_sign_up_final_step" />
 </navigation>

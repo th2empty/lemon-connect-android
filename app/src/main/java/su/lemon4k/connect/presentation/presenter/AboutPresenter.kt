@@ -1,7 +1,7 @@
 package su.lemon4k.connect.presentation.presenter
 
-import com.arellomobile.mvp.InjectViewState
-import com.arellomobile.mvp.MvpPresenter
+import moxy.InjectViewState
+import moxy.MvpPresenter
 import su.lemon4k.connect.ui.views.AboutView
 
 @InjectViewState

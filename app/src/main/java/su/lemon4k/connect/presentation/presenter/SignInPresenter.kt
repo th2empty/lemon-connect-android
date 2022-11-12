@@ -4,8 +4,8 @@ import android.accounts.Account
 import android.accounts.AccountManager
 import android.content.SharedPreferences
 import android.util.Log
-import com.arellomobile.mvp.InjectViewState
-import com.arellomobile.mvp.MvpPresenter
+import moxy.InjectViewState
+import moxy.MvpPresenter
 import su.lemon4k.connect.account.Constants
 import su.lemon4k.connect.model.User
 import su.lemon4k.connect.model.exceptions.InternalServerError

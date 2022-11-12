@@ -1,5 +1,5 @@
 package su.lemon4k.connect.ui.views
 
-import com.arellomobile.mvp.MvpView
+import moxy.MvpView
 
 interface AboutView : MvpView

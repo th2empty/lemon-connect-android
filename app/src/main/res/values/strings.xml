@@ -37,4 +37,13 @@
     <string name="st_enter_username">Enter username</string>
     <string name="st_why_do_need_username">The username will be displayed in the profile and can be used for authorization</string>
     <string name="st_username">Username</string>
+    <string name="st_field_cannot_be_empty">Field cannot be empty</string>
+    <string name="st_incorrect_email">Incorrect email</string>
+    <string name="st_email_already_registered">User with this email is already registered</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="st_enter_password">Enter password</string>
+    <string name="st_why_do_need_password">Create a strong password, it will be used for log in</string>
+    <string name="st_confirm_password">Confirm password</string>
+    <string name="st_password_lenght">Password length must be at least 6 characters</string>
 </resources>

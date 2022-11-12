@@ -1,7 +1,9 @@
 package su.lemon4k.connect.ui.views
 
-interface SignUpView : LoadingView {
-    fun showEmptyFieldError()
+import moxy.MvpView
+import moxy.viewstate.strategy.alias.AddToEndSingle
 
-    fun showAlreadyRegisteredError()
+interface SignUpView : MvpView {
+    @AddToEndSingle
+    fun showEmptyFieldError()
 }

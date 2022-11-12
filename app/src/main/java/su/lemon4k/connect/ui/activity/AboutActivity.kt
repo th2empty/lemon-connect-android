@@ -3,9 +3,9 @@ package su.lemon4k.connect.ui.activity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
-import com.arellomobile.mvp.MvpActivity
-import com.arellomobile.mvp.presenter.InjectPresenter
 import com.google.android.material.appbar.MaterialToolbar
+import moxy.MvpActivity
+import moxy.presenter.InjectPresenter
 import su.lemon4k.connect.BuildConfig
 import su.lemon4k.connect.R
 import su.lemon4k.connect.presentation.presenter.AboutPresenter

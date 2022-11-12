@@ -8,12 +8,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.core.widget.addTextChangedListener
-import com.arellomobile.mvp.MvpActivity
-import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import moxy.MvpActivity
+import moxy.presenter.InjectPresenter
 import su.lemon4k.connect.R
 import su.lemon4k.connect.account.Constants
 import su.lemon4k.connect.model.exceptions.InternalServerError

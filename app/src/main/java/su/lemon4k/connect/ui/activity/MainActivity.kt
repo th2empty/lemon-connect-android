@@ -1,20 +1,18 @@
 package su.lemon4k.connect.ui.activity
 
 import android.accounts.AccountManager
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.Toast
-import com.arellomobile.mvp.MvpActivity
-import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import moxy.MvpActivity
+import moxy.presenter.InjectPresenter
 import su.lemon4k.connect.R
 import su.lemon4k.connect.account.Constants
 import su.lemon4k.connect.presentation.presenter.MainPresenter
@@ -48,6 +46,7 @@ class MainActivity : MvpActivity(), MainView {
             if (!presenter.isUserLoggedIn(sharedPreferences, mAccountManager)) {
                 runBlocking(Dispatchers.Main) {
                     startActivity(Intent(this@MainActivity, SignInActivity::class.java))
+                    finish()
                 }
             }
         }
