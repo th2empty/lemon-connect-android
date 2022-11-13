@@ -16,4 +16,5 @@
     <color name="gray_dark">#A9A9A9</color> <!-- gray dark -->
     <color name="red">#EF2B23</color> <!-- red for errors -->
     <color name="gray_for_background">#EFEFEF</color> <!-- gray for background -->
+    <color name="pale_cerulean">#97C8EB</color> <!-- for avatar background -->
 </resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/img_error_404"
+        android:layout_gravity="center"
+        android:contentDescription="@string/st_not_found_error" />
+    <TextView
+        style="@style/SecondaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:text="@string/st_failed_to_load_data"
+        android:textSize="18sp"/>
+    <Button
+        android:id="@+id/btn_retry"
+        style="@style/TextButtonPrimaryVariant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/st_retry"
+        android:textSize="14sp"/>
+
+</LinearLayout>

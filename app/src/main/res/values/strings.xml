@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Connect</string>
     <string name="coder_nickname">lemon4k</string>
-    <string name="user_id">Personal ID: 1</string>
+    <string name="user_id">Personal ID: %d</string>
     <string name="personal_info">Personal info</string>
     <string name="st_account_security">Account security</string>
     <string name="st_cloud">Cloud</string>
@@ -47,4 +47,7 @@
     <string name="st_password_lenght">Password length must be at least 6 characters</string>
     <string name="st_password_mismatch_error">Passwords do not match</string>
     <string name="st_username_already_registered">User with this username is already registered</string>
+    <string name="st_not_found_error">Not Found</string>
+    <string name="st_failed_to_load_data">Filed to load data</string>
+    <string name="st_retry">Retry</string>
 </resources>

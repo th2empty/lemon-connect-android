@@ -8,6 +8,8 @@ import android.util.Log
 import moxy.InjectViewState
 import moxy.MvpPresenter
 import su.lemon4k.connect.account.Constants
+import su.lemon4k.connect.model.User
+import su.lemon4k.connect.model.exceptions.UnauthorizedException
 import su.lemon4k.connect.ui.views.MainView
 
 @InjectViewState
@@ -43,5 +45,15 @@ class MainPresenter : MvpPresenter<MainView>() {
         }
 
         return false
+    }
+
+    fun getProfileInfo(accountManager: AccountManager, sharedPreferences: SharedPreferences): User? {
+        return try {
+            val user = User()
+            user.getProfileInfo(accountManager, sharedPreferences)
+        } catch (ex: UnauthorizedException) {
+            Log.e(TAG, ex.printStackTrace().toString())
+            null
+        }
     }
 }
