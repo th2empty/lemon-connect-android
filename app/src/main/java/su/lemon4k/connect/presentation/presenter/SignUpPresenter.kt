@@ -6,8 +6,7 @@ import android.util.Log
 import moxy.InjectViewState
 import moxy.MvpPresenter
 import su.lemon4k.connect.model.Auth
-import su.lemon4k.connect.model.exceptions.InternalServerError
-import su.lemon4k.connect.network.input.SignInInput
+import su.lemon4k.connect.model.exceptions.InternalServerErrorException
 import su.lemon4k.connect.network.input.SignUpInput
 import su.lemon4k.connect.ui.views.SignUpView
 
@@ -27,7 +26,7 @@ class SignUpPresenter : MvpPresenter<SignUpView>() {
         } else {
             Log.e(TAG, response.code().toString())
             when (response.code()) {
-                500 -> throw InternalServerError(response.message())
+                500 -> throw InternalServerErrorException(response.message())
             }
         }
 
@@ -43,7 +42,7 @@ class SignUpPresenter : MvpPresenter<SignUpView>() {
         } else {
             Log.e(TAG, response.code().toString())
             when (response.code()) {
-                500 -> throw InternalServerError(response.message())
+                500 -> throw InternalServerErrorException(response.message())
             }
         }
 

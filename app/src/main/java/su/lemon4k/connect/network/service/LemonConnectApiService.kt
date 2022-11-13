@@ -6,12 +6,9 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Query
-import su.lemon4k.connect.network.response.RegisteredResponse
 import su.lemon4k.connect.network.input.SignInInput
 import su.lemon4k.connect.network.input.SignUpInput
-import su.lemon4k.connect.network.response.GetProfileInfoResponse
-import su.lemon4k.connect.network.response.SignInResponse
-import su.lemon4k.connect.network.response.SignUpResponse
+import su.lemon4k.connect.network.response.*
 
 interface LemonConnectApiService {
     @POST("auth/sign-up")
@@ -19,6 +16,9 @@ interface LemonConnectApiService {
 
     @POST("auth/sign-in")
     fun signIn(@Body signInInput: SignInInput): Call<SignInResponse>
+
+    @POST("account/logout")
+    fun logout(@Header("Authorization") accessToken: String): Call<MessageResponse>
 
     @GET("auth/find-email")
     fun findEmail(@Query("email") email: String): Call<RegisteredResponse>

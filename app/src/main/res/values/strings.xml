@@ -50,4 +50,8 @@
     <string name="st_not_found_error">Not Found</string>
     <string name="st_failed_to_load_data">Filed to load data</string>
     <string name="st_retry">Retry</string>
+    <string name="st_failed_to_logout">Failed to log out. Try again later</string>
+    <string name="st_confirm_logout">Do you really want to leave?</string>
+    <string name="st_sign_out">Sign out</string>
+    <string name="st_cancel">Cancel</string>
 </resources>

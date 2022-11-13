@@ -3,10 +3,9 @@ package su.lemon4k.connect.model
 import android.accounts.Account
 import android.accounts.AccountManager
 import android.content.SharedPreferences
-import android.util.Log
 import retrofit2.Response
 import su.lemon4k.connect.account.Constants
-import su.lemon4k.connect.model.exceptions.InternalServerError
+import su.lemon4k.connect.model.exceptions.InternalServerErrorException
 import su.lemon4k.connect.model.exceptions.UnauthorizedException
 import su.lemon4k.connect.network.LemonConnectApi
 import su.lemon4k.connect.network.input.SignInInput
@@ -32,7 +31,7 @@ open class Auth {
         } else {
             when (response.code()) {
                 400 -> throw Exception(response.message())
-                500 -> throw InternalServerError(response.message())
+                500 -> throw InternalServerErrorException(response.message())
             }
         }
 
@@ -49,7 +48,7 @@ open class Auth {
             when (response.code()) {
                 400 -> throw Exception(response.message())
                 401 -> throw UnauthorizedException(response.message())
-                500 -> throw InternalServerError(response.message())
+                500 -> throw InternalServerErrorException(response.message())
             }
         }
 

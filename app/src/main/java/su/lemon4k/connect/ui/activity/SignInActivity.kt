@@ -16,7 +16,7 @@ import moxy.MvpActivity
 import moxy.presenter.InjectPresenter
 import su.lemon4k.connect.R
 import su.lemon4k.connect.account.Constants
-import su.lemon4k.connect.model.exceptions.InternalServerError
+import su.lemon4k.connect.model.exceptions.InternalServerErrorException
 import su.lemon4k.connect.model.exceptions.UnauthorizedException
 import su.lemon4k.connect.network.input.SignInInput
 import su.lemon4k.connect.presentation.presenter.SignInPresenter
@@ -124,7 +124,7 @@ class SignInActivity : MvpActivity(), SignInView {
                     }
                 } catch (ex: UnauthorizedException) {
                     showAuthError(getString(R.string.st_invalid_username_or_password), ex)
-                } catch (ex: InternalServerError) {
+                } catch (ex: InternalServerErrorException) {
                     showErrorMessage(ex, getString(R.string.st_internal_server_error))
                 } catch (ex: ConnectException) {
                     showErrorMessage(ex, getString(R.string.st_server_unavailable))
